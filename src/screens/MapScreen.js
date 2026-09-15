@@ -507,9 +507,11 @@ export default function MapScreen() {
         <WebView
           ref={webRef}
           style={s.map}
-          source={{ html: MAP_HTML }}
+          source={{ html: MAP_HTML, baseUrl: 'https://unpkg.com' }}
           javaScriptEnabled domStorageEnabled originWhitelist={['*']}
           mixedContentMode="always"
+          allowUniversalAccessFromFileURLs
+          allowFileAccessFromFileURLs
           onLoad={() => setMapReady(true)}
           onMessage={onMessage}
           scrollEnabled={false}
